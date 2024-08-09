@@ -1,7 +1,8 @@
 const db = require('./config/dbConnection.js');
 const express = require('express');
 const cors = require('cors');
-const PublicacaoController = require('./controllers/publicacaoController.js')
+const PublicacaoController = require('./controllers/publicacaoController.js');
+const EventoController = require('./controllers/eventoController.js');
 
 const app = express();
 const PORT = 3001;
@@ -38,6 +39,10 @@ app.get('/teste', PublicacaoController.listarPublicacoes);
 app.post('/teste', PublicacaoController.cadastrarPublicacao);
 app.put('/teste/:id', PublicacaoController.atualizarPublicacao);
 app.delete('/teste/:id', PublicacaoController.excluirPublicacao);
+app.get('/teste2', EventoController.listarEventos);
+app.post('/teste2', EventoController.cadastrarEvento);
+app.put('/teste2/:id', EventoController.atualizarEvento);
+app.delete('/teste2/:id', EventoController.excluirEvento);
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando em: http://localhost:${PORT}`);
