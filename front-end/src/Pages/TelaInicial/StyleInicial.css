@@ -1,3 +1,6 @@
+body{
+    background-image: url(../../assets/greenery-frame-watercolor-green.jpg);
+}
 @media (min-width: 1440px) {
 
     .buttonOpenModal{
@@ -17,6 +20,7 @@
         border: none;
         display: flex;
         justify-content: center;
+        background-color: transparent;
         width: 60%;
         padding: 1em 0;
 
@@ -25,7 +29,7 @@
         border: none;
         width: 60%;
         display: flex;
-    
+        
         gap: 50px;
         justify-content: center;
     }

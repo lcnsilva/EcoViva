@@ -15,14 +15,19 @@ import { FcPlus } from "react-icons/fc";
         const [descricao, setDescricao] = useState('');
         const [addShowModal, setAddShowModal] = useState(false);
         const [nomePesquisa, setnomePesquisa] = useState("");
+        const [data_inicio, setData_inicio] = useState("");
+        const [data_final, setData_final] = useState("");
+
       
         const handleSubmitEventos = async (e) => {
-          e.preventDefault();
-          await createEventos({ titulo, nome_organizador, endereco, descricao });
+          
+          await createEventos({ titulo, nome_organizador, endereco, descricao, data_inicio, data_final });
           setNome_organizador('');
           setTitulo('');
           setEndereco('');
           setDescricao('');
+          setData_inicio('');
+          setData_final('');
         };
         
         useEffect(() => {
@@ -80,7 +85,15 @@ import { FcPlus } from "react-icons/fc";
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="endereco">Endereco</Label>
-                                    <Input type="email" value={endereco} onChange={e => setEndereco(e.target.value)} />
+                                    <Input type="text" value={endereco} onChange={e => setEndereco(e.target.value)} />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="dataInicio">data de inicio</Label>
+                                    <Input type="date" value={data_inicio} onChange={e => setData_inicio(e.target.value)} />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="endereco">Endereco</Label>
+                                    <Input type="date" value={data_final} onChange={e => setData_final(e.target.value)} />
                                 </FormGroup>
                             </Form>
                         </ModalBody>
@@ -124,7 +137,8 @@ import { FcPlus } from "react-icons/fc";
                                             className="mb-2 text-muted"
                                             tag="h6"
                                         >
-                                            {evento.nome}
+                                            <label>Voluntário:  </label>
+                                            {evento.nome_organizador}
                                         </CardSubtitle>
                                     </CardBody>
                                     <img
@@ -134,10 +148,20 @@ import { FcPlus } from "react-icons/fc";
                                     />
                                     <CardBody>
                                         <CardText>
+                                            <label>Descrição: </label>
                                             {evento.descricao}
                                         </CardText>
                                         <CardText>
-                                            {evento.contato}
+                                            <label>Local: </label>
+                                            {evento.endereco}
+                                        </CardText>
+                                        <CardText>
+                                            <label>Inicio: </label>
+                                            {evento.data_inicio}
+                                        </CardText>
+                                        <CardText>
+                                            <label>Término: </label>
+                                            {evento.data_final}
                                         </CardText>
                                     </CardBody>
                                 </Card>

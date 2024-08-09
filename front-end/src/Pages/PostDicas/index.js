@@ -122,10 +122,8 @@ import { FcPlus } from "react-icons/fc";
                                     />
                                     <CardBody>
                                         <CardText>
+                                            <label>Descrição: </label>
                                             {dica.descricao}
-                                        </CardText>
-                                        <CardText>
-                                            {dica.contato}
                                         </CardText>
                                     </CardBody>
                                 </Card>
