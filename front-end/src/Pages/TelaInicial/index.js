@@ -96,7 +96,7 @@ function TelaInicial() {
                     </Modal>
                 </Col>
             </Row>
-
+            
             <div className='filter'>
                 <form onSubmit={handleSeachByTopico} className='pesquisa'>
                     <Input
@@ -107,8 +107,8 @@ function TelaInicial() {
                         onChange={e => setTopicoPesquisa(e.target.value)}
                     />
                 </form>
-                <Button color="success" onClick={() => setAddShowModal(true)}><FcPlus /></Button>
             </div>
+            <Button color="success" onClick={() => setAddShowModal(true)} className='buttonOpenModal'><FcPlus /></Button>
             <div className='container__telaInicial'>
                 <div className="card">
                     <Row>

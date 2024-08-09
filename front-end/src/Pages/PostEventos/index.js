@@ -102,8 +102,9 @@ import { FcPlus } from "react-icons/fc";
                         onChange={e => setnomePesquisa(e.target.value)}
                     />
                 </form>
-                <Button color="success" onClick={() => setAddShowModal(true)}><FcPlus /></Button>
+                
             </div>
+            <Button color="success" onClick={() => setAddShowModal(true)} className='buttonOpenModal'><FcPlus /></Button>
             <div className='container__telaInicial'>
                 <div className="card">
                     <Row>
