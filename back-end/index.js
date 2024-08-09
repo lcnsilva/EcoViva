@@ -40,11 +40,6 @@ app.get('/', (req,res) => {
     res.send("Gincana TECH API");
 })
 
-app.get('/teste2', EventoController.listarEventos);
-app.post('/teste2', EventoController.cadastrarEvento);
-app.put('/teste2/:id', EventoController.atualizarEvento);
-app.delete('/teste2/:id', EventoController.excluirEvento);
-
 app.listen(PORT, () => {
     console.log(`Servidor rodando em: http://localhost:${PORT}`);
 })
