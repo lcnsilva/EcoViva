@@ -1,6 +1,6 @@
 header {
     display: flex;
-    align-items: center;
+	align-items: center;
     justify-content: space-between;
     background-color: #D9FFCB;
     color:#026602;
@@ -13,7 +13,7 @@ nav a {
     color:#242424;
     text-decoration: none;
     margin: 0 2rem;
-    font-size: 18px;
+    font-size: 20px;
 }
 header .nav-btn {
 	padding: 5px;
@@ -28,33 +28,9 @@ header .nav-btn {
 }
 nav a:hover {
 	color: green;
-    font-size: 20px;
-
+    font-size: 22px;
 }
 
-nav .pesquisa{
-    display: flex;
-    align-items: center;
-    background: #7cdb5f;
-    padding: 10px 20px;
-    border-radius: 50px;
-}
-nav .pesquisa input{
-    padding: 6px;
-    background: transparent;
-    border: 0;
-    outline: 0;
-    color: #242424;
-    font-size: 18px;
-    max-width: 200px;
-}
-nav .pesquisa input::placeholder{
-    color: #242424;
-}
-nav .pesquisa img{
-    width: 20px;
-    cursor: pointer;
-}
 header div,
 nav {
 	display: flex;
@@ -94,5 +70,8 @@ nav {
 
 	nav a {
 		font-size: 1.5rem;
+	}
+	nav a:hover {
+		font-size: 2rem;
 	}
 }
