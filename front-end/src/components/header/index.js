@@ -1,7 +1,7 @@
 import './style.css'
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-
+import  iconArvore  from "../../assets/plantar-arvore.png"
 
 function Header() {
     const navRef = useRef();
@@ -14,6 +14,7 @@ function Header() {
 
     return(
         <header>
+            <img src={iconArvore} width='50px' height='60px'></img>
             <h2>EcoViva</h2>
             <nav ref={navRef}>
                 <a href='/'>Página inicial</a>
