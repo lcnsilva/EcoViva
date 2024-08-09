@@ -1,0 +1,142 @@
+@media (min-width: 1440px) {
+    .container__telaInicial {
+        border: none;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
+    .container__telaInicial>.card {
+        border: none;
+        display: flex;
+        justify-content: center;
+        width: 60%;
+    }
+    .card>.group {
+        border: none;
+        width: 60%;
+        display: flex;
+    
+        gap: 50px;
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container__telaInicial {
+        border: none;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
+    .container__telaInicial>.card {
+        border: none;
+        display: flex;
+        justify-content: center;
+        width: 60%;
+    }
+    .card>.group {
+        border: none;
+        width: 60%;
+        display: flex;
+    
+        gap: 50px;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container__telaInicial {
+        border: none;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
+    .container__telaInicial>.card {
+        border: none;
+        display: flex;
+        justify-content: center;
+        width: 60%;
+    }
+    .card>.group {
+        border: none;
+        width: 60%;
+        display: flex;
+    
+        gap: 50px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .container__telaInicial {
+        border: none;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
+    .container__telaInicial>.card {
+        border: none;
+        display: flex;
+        justify-content: center;
+        width: 60%;
+    }
+    .card>.group {
+        border: none;
+        width: 60%;
+        display: flex;
+    
+        gap: 50px;
+        justify-content: center;
+    }
+   }
+
+  
+
+.container__telaInicial>.card {
+    border: none;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+}
+
+.card>.group {
+    border: none;
+    width: 60%;
+    display: flex;
+
+    gap: 50px;
+    justify-content: center;
+}
+
+@media (max-width: 414px) {
+    .container__telaInicial {
+        border: none;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
+    .container__telaInicial>.card {
+        border: none;
+        display: flex;
+        justify-content: center;
+        width: 60%;
+    }
+    .card>.group {
+        border: none;
+        width: 60%;
+        display: flex;
+    
+        gap: 50px;
+        justify-content: center;
+    }
+}
