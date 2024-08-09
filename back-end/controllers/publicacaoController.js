@@ -5,7 +5,7 @@ class PublicacaoController{
     static listarPublicacoes = async (req,res) => {
         try{
             const publicacoesResultado = await Publicacao.findAll({order: [
-                ['id_publicacao', 'ASC']
+                ['id_publicacao', 'DESC']
             ]});
             res.status(200).json(publicacoesResultado);
         }catch(error){
