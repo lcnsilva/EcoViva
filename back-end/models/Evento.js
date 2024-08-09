@@ -31,6 +31,9 @@ const Evento = db.define('eventos', {
     descricao : {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    imgsrc : {
+        type: Sequelize.STRING
     }
 })
 

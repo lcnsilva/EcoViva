@@ -23,6 +23,9 @@ const Publicacao = db.define('publicacoes', {
     contato : {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    imgsrc : {
+        type: Sequelize.STRING,
     }
 })
 

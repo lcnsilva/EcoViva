@@ -15,6 +15,9 @@ const Dica = db.define('dicas', {
     descricao : {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    imgsrc : {
+        type: Sequelize.STRING,
     }
 })
 

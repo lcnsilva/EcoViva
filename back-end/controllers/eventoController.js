@@ -15,7 +15,7 @@ class EventoController{
     };
     static cadastrarEvento = async (req,res) => {
         try{
-            let {titulo, nome_organizador, data_inicio, data_final, endereco, descricao} = req.body;
+            let {titulo, nome_organizador, data_inicio, data_final, endereco, descricao, imgsrc} = req.body;
 
             const eventoResultado = await Evento.create({
                 titulo,
@@ -23,7 +23,8 @@ class EventoController{
                 data_inicio,
                 data_final,
                 endereco,
-                descricao
+                descricao,
+                imgsrc
             });
             res.status(201).json(eventoResultado.toJSON());
         }catch(error){
@@ -34,8 +35,8 @@ class EventoController{
     static atualizarEvento = async (req,res) => {
         const id = req.params.id;
         try{
-            let {titulo, nome_organizador, data_inicio, data_final, endereco, descricao} = req.body;
-            let dados = {titulo, nome_organizador, data_inicio, data_final, endereco, descricao};
+            let {titulo, nome_organizador, data_inicio, data_final, endereco, descricao, imgsrc} = req.body;
+            let dados = {titulo, nome_organizador, data_inicio, data_final, endereco, descricao, imgsrc};
             const eventoResultado = await Evento.update(dados, {where: {id_evento : id}});
             res.status(200).send({message: "Evento atualizado com sucesso"});
         }catch(error){

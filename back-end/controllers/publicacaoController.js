@@ -15,13 +15,14 @@ class PublicacaoController{
     };
     static cadastrarPublicacao = async (req,res) => {
         try{
-            let {nome, topico, descricao, contato} = req.body;
+            let {nome, topico, descricao, contato, imgsrc} = req.body;
             
             const publicacoesResultado = await Publicacao.create({
                 nome,
                 topico,
                 descricao,
-                contato
+                contato,
+                imgsrc
             });
             res.status(201).json(publicacoesResultado.toJSON());
         }catch(error){
@@ -32,8 +33,8 @@ class PublicacaoController{
     static atualizarPublicacao = async (req,res) => {
         const id = req.params.id;
         try{
-            let {nome, topico, descricao, contato} = req.body;
-            let dados = {nome, topico, descricao, contato};
+            let {nome, topico, descricao, contato, imgsrc} = req.body;
+            let dados = {nome, topico, descricao, contato, imgsrc};
             const publicacoesResultado = await Publicacao.update(dados, {where: {id_publicacao : id}});
             res.status(200).send({message: "Publicação atualizada com sucesso"});
         }catch(error){
