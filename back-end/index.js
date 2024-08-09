@@ -1,7 +1,10 @@
 const db = require('./config/dbConnection.js');
 const express = require('express');
 const cors = require('cors');
-const PublicacaoController = require('./controllers/publicacaoController.js')
+const PublicacaoController = require('./controllers/publicacaoController.js');
+const EventoController = require('./controllers/eventoController.js');
+const routesPublicacoes = require('./routes/publicacoesRoutes.js');
+const routesEventos = require('./routes/eventosRoutes.js');
 
 const app = express();
 const PORT = 3001;
@@ -29,15 +32,13 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
+app.use(routesPublicacoes);
+app.use(routesEventos);
+
 
 app.get('/', (req,res) => {
     res.send("Gincana TECH API");
 })
-
-app.get('/teste', PublicacaoController.listarPublicacoes);
-app.post('/teste', PublicacaoController.cadastrarPublicacao);
-app.put('/teste/:id', PublicacaoController.atualizarPublicacao);
-app.delete('/teste/:id', PublicacaoController.excluirPublicacao);
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando em: http://localhost:${PORT}`);

@@ -4,8 +4,7 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
-.container{
+.header{
     width: 100vw;
-    min-height: 100vh;
     background: #fff;
 }
