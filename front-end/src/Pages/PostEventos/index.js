@@ -37,7 +37,7 @@ import { FcPlus } from "react-icons/fc";
             setEvento(getEventoData);
         };
         
-        const handleSeachBynome = async (e) => {
+        const handleSearchBynome = async (e) => {
             e.preventDefault();
             if (!nomePesquisa) {
                 await getEventos();
@@ -93,7 +93,7 @@ import { FcPlus } from "react-icons/fc";
             </Row>
 
             <div className='filter'>
-                <form onSubmit={handleSeachBynome} className='pesquisa'>
+                <form onSubmit={handleSearchBynome} className='pesquisa'>
                     <Input
                         type='text'
                         placeholder='Pesquisar'
