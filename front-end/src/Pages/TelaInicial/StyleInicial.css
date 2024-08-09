@@ -46,6 +46,15 @@
         gap: 50px;
         justify-content: center;
     }
+    .pesquisa{
+        text-align: center;
+    }
+
+    .pesquisa > .inputFiltro{
+        border-radius: 7px;
+        width: 60%;
+        text-align: center;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {

@@ -5,27 +5,30 @@ import "./StyleInicial.css";
 import { FcPlus } from "react-icons/fc";
 import { createPost } from './api';
 import { fetchPost } from './api';
+import search_icon from '../../assets/search.png'
+import { fetchFilterByTopico } from './api';
 
 function TelaInicial() {
     const [post, setPost] = useState([]);
-
+    const  receivePost = [post, setPost];
     const [nome, setNome] = useState("");
     const [topico, setTopico] = useState("");
     const [descricao, setDescricao] = useState("");
     const [contato, setContato] = useState("");
+    const [topicoPesquisa, setTopicoPesquisa] = useState("");
     const [addShowModal, setAddShowModal] = useState(false);
 
     useEffect(() => {
         getPost();
-        const interval = setInterval(fetchPost, 2000);
+        const interval = setInterval(fetchPost, 50000);
         return () => clearInterval(interval);
-
     }, [])
 
     const getPost = async () => {
         const getPost = await fetchPost();
         setPost(getPost);
     };
+
 
     const handleCadastroPost = async (e) => {
         e.preventDefault();
@@ -37,9 +40,28 @@ function TelaInicial() {
         setContato('');
     }
 
+    const handleSeachByTopico = async() =>{
+        if (!topicoPesquisa) {
+            alert('O campo de pesquisa precisa ser preenchido!');
+            return;
+          }
+          try {
+            const response = await fetch(`http://localhost:3001/publicacoes/${topicoPesquisa}`);
+            if (!response.ok) {
+              throw new Error('Erro ao buscar produtos!');
+            }
+            const data = await response.json();
+            alert(data);
+            console.log(data);
+            setPost(data);
+          } catch (error) {
+            console.error(error);
+          }
+    }
+
     return (
         <>
-            <h1 style={{ textAlign: 'center' }}>Tela inicial</h1>
+            
             <Button color="success" onClick={() => setAddShowModal(true)} style={{ float: 'right' }}><FcPlus /></Button>
 
             <br></br>
@@ -74,7 +96,12 @@ function TelaInicial() {
                     </Modal>
                 </Col>
             </Row>
-            <div className='container__telaInicial'>
+            <div className='pesquisa'>
+                    <input type='text' placeholder='Pesquisar' className='inputFiltro' value={topicoPesquisa} onChange={e => setTopicoPesquisa(e.target.value)}></input>
+                    <img src={search_icon} alt='pesquisar' className='iconeFiltro'/>
+                    <Button onClick={handleSeachByTopico}>Pesquisar</Button>
+                </div>
+            <div className='container__telaInicial'> 
                 <div className="card">
                     <Row>
                         {post.map((post, index) => (

@@ -1,7 +1,8 @@
 import './style.css'
-import search_icon from '../../assets/search.png'
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import search_icon from '../../assets/search.png';
+
 
 function Header() {
     const navRef = useRef();
@@ -11,6 +12,7 @@ function Header() {
 			"responsive_nav"
 		);
 	};
+
     return(
         <header>
             <h2>EcoViva</h2>
