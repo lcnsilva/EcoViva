@@ -1,7 +1,6 @@
 import './style.css'
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import search_icon from '../../assets/search.png';
 
 
 function Header() {
@@ -26,10 +25,6 @@ function Header() {
                         onClick={showNavbar}>
                         <FaTimes />
                 </button>
-                <div className='pesquisa'>
-                    <input type='text' placeholder='Pesquisar'></input>
-                    <img src={search_icon} alt='pesquisar' className=''/>
-                </div>
             </nav>
             <button
 				className="nav-btn"
