@@ -1,20 +1,40 @@
 import './style.css'
 import search_icon from '../../assets/search.png'
+import { useRef } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 function Header() {
+    const navRef = useRef();
+
+	const showNavbar = () => {
+		navRef.current.classList.toggle(
+			"responsive_nav"
+		);
+	};
     return(
-        <div className='navbar'>
-            
-            <ul>
-                <li>Página inicial</li>
-                <li>Dicas</li>
-                <li>Eventos</li>
-            </ul>
-            <div className='pesquisa'>
-                <input type='text' placeholder='Pesquisa'></input>
-                <img src={search_icon} alt='' className=''/>
-            </div>
-        </div>
+        <header>
+            <h2>EcoViva</h2>
+            <nav ref={navRef}>
+                <a href='/'>Página inicial</a>
+                <a href='/PostDicas'>Dicas</a>
+                <a href='/PostEventos'>Eventos</a>
+
+                <button
+                        className="nav-btn nav-close-btn"
+                        onClick={showNavbar}>
+                        <FaTimes />
+                </button>
+                <div className='pesquisa'>
+                    <input type='text' placeholder='Pesquisar'></input>
+                    <img src={search_icon} alt='pesquisar' className=''/>
+                </div>
+            </nav>
+            <button
+				className="nav-btn"
+				onClick={showNavbar}>
+				<FaBars />
+			</button>
+        </header>
     )
 }
 export default Header
