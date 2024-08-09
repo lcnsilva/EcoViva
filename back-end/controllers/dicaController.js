@@ -15,11 +15,12 @@ class DicaController{
     };
     static cadastrarDica = async (req,res) => {
         try{
-            let {titulo, descricao} = req.body;
+            let {titulo, descricao, imgsrc} = req.body;
 
             const dicaResultado = await Dica.create({
                 titulo,
-                descricao
+                descricao,
+                imgsrc
             });
             res.status(201).json(dicaResultado.toJSON());
         }catch(error){
@@ -30,8 +31,8 @@ class DicaController{
     static atualizarDica = async (req,res) => {
         const id = req.params.id;
         try{
-            let {titulo, descricao} = req.body;
-            let dados = {titulo, descricao};
+            let {titulo, descricao,imgsrc} = req.body;
+            let dados = {titulo, descricao,imgsrc};
             const dicaResultado = await Dica.update(dados, {where: {id_dica : id}});
             res.status(200).send({message: "Dica atualizada com sucesso"});
         }catch(error){
