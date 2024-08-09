@@ -5,7 +5,7 @@ import "./StyleInicial.css";
 import { FcPlus } from "react-icons/fc";
 import { createPost } from './api';
 import { fetchPost } from './api';
-import search_icon from '../../assets/search.png'
+
 import { fetchFilterByTopico } from './api';
 
 function TelaInicial() {
