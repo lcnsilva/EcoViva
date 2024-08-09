@@ -39,7 +39,7 @@ A nossa equipe escolheu utilizar `HTML`, `CSS` e `JavaScript`, utilizando os fra
 | :---------- | :--------- | :------------------------------------------ |
 | `JSON`      | `String` | Cadastra um evento de acordo com os dados do body da requisição. |
 
-#### Cadastra um item
+#### Atualiza um item
 
 ```http
   PUT /eventos/${id}
