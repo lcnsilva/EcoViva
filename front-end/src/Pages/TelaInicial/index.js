@@ -10,7 +10,6 @@ import { fetchFilterByTopico } from './api';
 
 function TelaInicial() {
     const [post, setPost] = useState([]);
-    const  receivePost = [post, setPost];
     const [nome, setNome] = useState("");
     const [topico, setTopico] = useState("");
     const [descricao, setDescricao] = useState("");
@@ -40,29 +39,30 @@ function TelaInicial() {
         setContato('');
     }
 
-    const handleSeachByTopico = async() =>{
+    const handleSeachByTopico = async (e) => {
+        e.preventDefault();
         if (!topicoPesquisa) {
-            alert('O campo de pesquisa precisa ser preenchido!');
+            await getPost();
             return;
-          }
-          try {
+        }
+        try {
             const response = await fetch(`http://localhost:3001/publicacoes/${topicoPesquisa}`);
             if (!response.ok) {
-              throw new Error('Erro ao buscar produtos!');
+                throw new Error('Erro ao buscar publicações!');
             }
             const data = await response.json();
-            alert(data);
-            console.log(data);
+            console.log('Data received:', data);
             setPost(data);
-          } catch (error) {
-            console.error(error);
-          }
+        } catch (error) {
+            console.error('Erro:', error);
+        }
+
     }
 
     return (
         <>
-            
-            <Button color="success" onClick={() => setAddShowModal(true)} style={{ float: 'right' }}><FcPlus /></Button>
+
+
 
             <br></br>
             <Row>
@@ -96,12 +96,20 @@ function TelaInicial() {
                     </Modal>
                 </Col>
             </Row>
-            <div className='pesquisa'>
-                    <input type='text' placeholder='Pesquisar' className='inputFiltro' value={topicoPesquisa} onChange={e => setTopicoPesquisa(e.target.value)}></input>
-                    <img src={search_icon} alt='pesquisar' className='iconeFiltro'/>
-                    <Button onClick={handleSeachByTopico}>Pesquisar</Button>
-                </div>
-            <div className='container__telaInicial'> 
+
+            <div className='filter'>
+                <form onSubmit={handleSeachByTopico} className='pesquisa'>
+                    <Input
+                        type='text'
+                        placeholder='Pesquisar'
+                        className='inputFiltro'
+                        value={topicoPesquisa}
+                        onChange={e => setTopicoPesquisa(e.target.value)}
+                    />
+                </form>
+                <Button color="success" onClick={() => setAddShowModal(true)}><FcPlus /></Button>
+            </div>
+            <div className='container__telaInicial'>
                 <div className="card">
                     <Row>
                         {post.map((post, index) => (

@@ -52,15 +52,14 @@ class PublicacaoController{
     }
 
     static filtrarPublicacoes = async (req,res) => {
-        const {filterTopico} = req.params;
+        const {topico} = req.params;
         try{
-            const publicacoesResultado = await Publicacao.findAll({where: {topico : filterTopico}})
+            const publicacoesResultado = await Publicacao.findAll({where: {topico}})
             res.status(200).json(publicacoesResultado);
             console.log(publicacoesResultado);
         }catch(error){
             res.status(500).json({ message: "Erro interno no servidor" });
         }
-        
     };
 
 
