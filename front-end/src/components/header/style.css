@@ -1,12 +1,29 @@
 header {
+	width: 100vw;
     display: flex;
 	align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     background-color: #D9FFCB;
-    color:#026602;
-    padding: 15px 7%;
     z-index: 10;
     position: relative;
+}
+
+.container__header {
+	padding: 1.5em 0 2.5em 0;
+	width: 60%;
+	display: flex;
+	justify-content: space-between;
+	align-items: first baseline;
+	
+}
+
+.container__headerIcon {
+	display: flex;
+	color:#026602;
+	gap: 1em;
+	justify-content: center;
+	align-items: first baseline;
+
 }
 
 nav a {
@@ -41,6 +58,11 @@ nav {
     header .nav-btn {
 		visibility: visible;
 		opacity: 1;
+	}
+
+	.container__header {
+		width: 100%;
+		padding: 1em;
 	}
 
 	header nav {
