@@ -5,10 +5,12 @@ import './style.css'
 
 function App() {
   return (
-    <div className="container">
+    <>
+      <div className="header">
       <Header/>
+      </div>
       <RoutesApp/>
-    </div>
+    </>
   );
 }
 
