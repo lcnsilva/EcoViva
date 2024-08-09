@@ -1,10 +1,10 @@
 const db = require('./config/dbConnection.js');
 const express = require('express');
 const cors = require('cors');
-const PublicacaoController = require('./controllers/publicacaoController.js');
-const EventoController = require('./controllers/eventoController.js');
 const routesPublicacoes = require('./routes/publicacoesRoutes.js');
 const routesEventos = require('./routes/eventosRoutes.js');
+const routesDicas = require('./routes/dicasRoutes.js');
+
 
 const app = express();
 const PORT = 3001;
@@ -34,10 +34,10 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(routesPublicacoes);
 app.use(routesEventos);
-
+app.use(routesDicas);
 
 app.get('/', (req,res) => {
-    res.send("Gincana TECH API");
+    res.send("EcoViva - Gincana TECH API");
 })
 
 app.listen(PORT, () => {

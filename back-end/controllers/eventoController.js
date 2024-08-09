@@ -5,7 +5,7 @@ class EventoController{
     static listarEventos = async (req,res) => {
         try{
             const eventoResultado = await Evento.findAll({order: [
-                ['id_evento', 'ASC']
+                ['id_evento', 'DESC']
             ]});
             res.status(200).json(eventoResultado);
         }catch(error){
@@ -34,9 +34,9 @@ class EventoController{
     static atualizarEvento = async (req,res) => {
         const id = req.params.id;
         try{
-            let {nome_organizador, data_inicio, data_final, endereco, descricao} = req.body;
-            let dados = {nome_organizador, data_inicio, data_final, endereco, descricao};
-            const eventoResultado = await Evento.update(dados, {where: {id_Evento : id}});
+            let {titulo, nome_organizador, data_inicio, data_final, endereco, descricao} = req.body;
+            let dados = {titulo, nome_organizador, data_inicio, data_final, endereco, descricao};
+            const eventoResultado = await Evento.update(dados, {where: {id_evento : id}});
             res.status(200).send({message: "Evento atualizado com sucesso"});
         }catch(error){
             res.status(500).send({message: `${error.message} - falha ao atualizar Evento.`})
@@ -46,7 +46,7 @@ class EventoController{
     static excluirEvento = async (req,res) => {
         const id = req.params.id;
         try{
-            Evento.destroy({where: {id_Evento : id}})
+            Evento.destroy({where: {id_evento : id}})
             res.status(200).send({message: "Evento removido com sucesso"});
         }catch(error){
             res.status(500).send({message: `${error.message} - falha ao excluir Evento.`})
