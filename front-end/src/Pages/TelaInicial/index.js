@@ -5,27 +5,29 @@ import "./StyleInicial.css";
 import { FcPlus } from "react-icons/fc";
 import { createPost } from './api';
 import { fetchPost } from './api';
+import search_icon from '../../assets/search.png'
+import { fetchFilterByTopico } from './api';
 
 function TelaInicial() {
     const [post, setPost] = useState([]);
-
     const [nome, setNome] = useState("");
     const [topico, setTopico] = useState("");
     const [descricao, setDescricao] = useState("");
     const [contato, setContato] = useState("");
+    const [topicoPesquisa, setTopicoPesquisa] = useState("");
     const [addShowModal, setAddShowModal] = useState(false);
 
     useEffect(() => {
         getPost();
-        const interval = setInterval(fetchPost, 2000);
+        const interval = setInterval(fetchPost, 50000);
         return () => clearInterval(interval);
-
     }, [])
 
     const getPost = async () => {
         const getPost = await fetchPost();
         setPost(getPost);
     };
+
 
     const handleCadastroPost = async (e) => {
         e.preventDefault();
@@ -37,10 +39,30 @@ function TelaInicial() {
         setContato('');
     }
 
+    const handleSeachByTopico = async (e) => {
+        e.preventDefault();
+        if (!topicoPesquisa) {
+            await getPost();
+            return;
+        }
+        try {
+            const response = await fetch(`http://localhost:3001/publicacoes/${topicoPesquisa}`);
+            if (!response.ok) {
+                throw new Error('Erro ao buscar publicações!');
+            }
+            const data = await response.json();
+            console.log('Data received:', data);
+            setPost(data);
+        } catch (error) {
+            console.error('Erro:', error);
+        }
+
+    }
+
     return (
         <>
-            <h1 style={{ textAlign: 'center' }}>Tela inicial</h1>
-            <Button color="success" onClick={() => setAddShowModal(true)} style={{ float: 'right' }}><FcPlus /></Button>
+
+
 
             <br></br>
             <Row>
@@ -74,6 +96,19 @@ function TelaInicial() {
                     </Modal>
                 </Col>
             </Row>
+
+            <div className='filter'>
+                <form onSubmit={handleSeachByTopico} className='pesquisa'>
+                    <Input
+                        type='text'
+                        placeholder='Pesquisar'
+                        className='inputFiltro'
+                        value={topicoPesquisa}
+                        onChange={e => setTopicoPesquisa(e.target.value)}
+                    />
+                </form>
+                <Button color="success" onClick={() => setAddShowModal(true)}><FcPlus /></Button>
+            </div>
             <div className='container__telaInicial'>
                 <div className="card">
                     <Row>
