@@ -1,36 +1,41 @@
 import './style.css'
 import search_icon from '../../assets/search.png'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useRef } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 function Header() {
-    const [menuOpen, setMenuOpen] = useState(false);
+    const navRef = useRef();
+
+	const showNavbar = () => {
+		navRef.current.classList.toggle(
+			"responsive_nav"
+		);
+	};
     return(
-        <nav>
-            <a href='/' className='titulo'>EcoViva</a>
-            <div className="menu" onClick={() => {
-                setMenuOpen(!menuOpen);
-            }}>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul className={menuOpen ? "open" : ""}>
-                <li>
-                    <a href='/'>Página inicial</a>
-                </li>
-                <li>
-                    <a href='/'>Dicas</a>
-                </li>
-                <li>
-                    <a href='/'>Eventos</a>
-                </li>
-            </ul>
-            <div className='pesquisa'>
-                <input type='text' placeholder='Pesquisa'></input>
-                <img src={search_icon} alt='' className=''/>
-            </div>
-        </nav>
+        <header>
+            <h2>EcoViva</h2>
+            <nav ref={navRef}>
+              
+                <a href='/'>Página inicial</a>
+                <a href='/PostDicas'>Dicas</a>
+                <a href='/PostEventos'>Eventos</a>
+
+                <button
+                        className="nav-btn nav-close-btn"
+                        onClick={showNavbar}>
+                        <FaTimes />
+                </button>
+                <div className='pesquisa'>
+                    <input type='text' placeholder='Pesquisar'></input>
+                    <img src={search_icon} alt='pesquisar' className=''/>
+                </div>
+            </nav>
+            <button
+				className="nav-btn"
+				onClick={showNavbar}>
+				<FaBars />
+			</button>
+        </header>
     )
 }
 export default Header
