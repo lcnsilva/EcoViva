@@ -15,7 +15,6 @@ function Header() {
         <header>
             <h2>EcoViva</h2>
             <nav ref={navRef}>
-              
                 <a href='/'>Página inicial</a>
                 <a href='/PostDicas'>Dicas</a>
                 <a href='/PostEventos'>Eventos</a>
