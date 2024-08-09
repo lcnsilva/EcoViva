@@ -5,6 +5,8 @@ header {
     background-color: #D9FFCB;
     color:#026602;
     padding: 15px 7%;
+    z-index: 10;
+    position: relative;
 }
 
 nav a {
